@@ -1,0 +1,35 @@
+<idea-plugin>
+    <id>org.ed.combiner</id>
+    <name>FileCombiner</name>
+    <vendor email="michal@krchnavy.com" url="https://www.krchnavy.com">Michal Krchnavy</vendor>
+    <description>
+        Organize and copy content from multiple files with file paths and names to your clipboard.
+        Give your AI assistants the context they need for accurate and efficient responses
+    </description>
+    <depends>com.intellij.modules.platform</depends>
+    <extensions defaultExtensionNs="com.intellij">
+    </extensions>
+    <actions>
+        <action id="CombineAndCopyFilesAction"
+                class="org.ed.combiner.CombineSelectedFilesAction"
+                text="Copy for AI Assistant (Selected Files)"
+                description="Bundle files or text selections with source information and copy to clipboard">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="after" relative-to-action="ProjectViewEditSource"/>
+        </action>
+        <action id="CombineEditorTextAction"
+                class="org.ed.combiner.CombineSelectedFilesAction"
+                text="Copy for AI Assistant (Editor)"
+                description="Copies the selected editor text to clipboard along with file paths and names">
+            <add-to-group group-id="Copy.Paste.Special" anchor="last"/>
+            <add-to-group group-id="EditorPopupMenu" relative-to-action="$Copy" anchor="after"/>
+        </action>
+        <action id="CombineOpenedFilesAction"
+                class="org.ed.combiner.CombineOpenedFilesAction"
+                text="Copy for AI Assistant (Opened Files)"
+                description="Copies the selected editor text to clipboard along with file paths and names">
+            <add-to-group group-id="EditMenu" relative-to-action="$Copy" anchor="after"/>
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="after" relative-to-action="ProjectViewEditSource"/>
+        </action>
+    </actions>
+</idea-plugin>
