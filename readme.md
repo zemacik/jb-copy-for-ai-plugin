@@ -26,7 +26,7 @@ A plugin that helps you organize and copy content from multiple files with paths
 
 2. Build the plugin
    ```bash
-   ./gradlew build
+   ./gradlew buildPlugin
    ```
 
    This will generate a plugin ZIP file in `build/distributions/`.
